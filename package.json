@@ -3,15 +3,15 @@
   "version": "0.0.1",
   "license": "MIT",
   "description": "Utility scripts for JavaScript projects",
+  "main": "./dist",
+  "types": "./dist",
   "scripts": {
-    "build": "tsc",
-		"lint": "tslint ./src/**/*.ts -t verbose",
-		"precommit": "npm run build && npm run lint && npm run test:once",
-    "test": "npm run build && jasmine",
-		"test:once": "jasmine"
+    "build": "rimraf dist && tsc",
+    "commit": "git-cz",
+    "lint": "tslint ./src/**/*.ts -t verbose",
+    "prerelease": "npm run lint && npm run build && npm run test",
+    "test": "jasmine"
   },
-	"main": "./dist",
-	"types": "./src",
   "author": "Charles Louw <charles.louw@gmail.com>",
   "repository": {
     "type": "git",
@@ -21,11 +21,19 @@
     "lodash": "^4.17.4"
   },
   "devDependencies": {
-    "@types/jasmine": "2.5.36",
-    "@types/lodash": "^4.14.58",
+    "@types/jasmine": "^2.5.36",
+    "@types/lodash": "^4.14.62",
+    "commitizen": "^2.8.1",
+    "cz-conventional-changelog": "^2.0.0",
     "jasmine": "^2.5.3",
     "jasmine-core": "^2.5.2",
+    "rimraf": "^2.5.4",
     "tslint": "^4.5.1",
-    "typescript": "~2.2.1"
+    "typescript": "^2.2.1"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    }
   }
 }
