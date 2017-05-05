@@ -4,6 +4,7 @@
   "license": "MIT",
   "description": "Utility scripts for JavaScript projects",
   "main": "./dist",
+  "module": "./src",
   "types": "./dist",
   "scripts": {
     "build": "rimraf dist && tsc",
